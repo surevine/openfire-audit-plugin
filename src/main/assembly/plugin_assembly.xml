@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+	<id>plugin</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<files>
+		<file>
+			<source>README.md</source>
+		</file>
+	</files>
+	<fileSets>
+		<fileSet>
+			<directory>src/main/database</directory>
+			<outputDirectory>/database</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/resources</directory>
+			<outputDirectory>/classes</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>target/classes</directory>
+			<includes>
+				<include>plugin.xml</include>
+			</includes>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<useProjectArtifact>true</useProjectArtifact>
+<!-- 			<outputFileNameMapping>plugin-${artifact.artifactId}.${artifact.extension}</outputFileNameMapping> -->
+		</dependencySet>
+	</dependencySets>
+</assembly>
