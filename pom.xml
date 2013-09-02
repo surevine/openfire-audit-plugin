@@ -146,9 +146,63 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<configLocation>src/main/build/checkstyle.xml</configLocation>
+					<failsOnError>true</failsOnError>
+				</configuration>
+				<inherited>true</inherited>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<configuration>
+					<findbugsXmlOutput>true</findbugsXmlOutput>
+					<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+					<xmlOutput>true</xmlOutput>
+					<failOnError>true</failOnError>
+				</configuration>
+				<inherited>true</inherited>
+			</plugin>
 		</plugins>
 	</build>
-
+	
+	<!-- R E P O R T I N G -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.2</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>index</report>
+							<report>dependency-management</report>
+							<report>plugin-management</report>
+							<report>summary</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+				<inherited>true</inherited>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.5</version>
+				<inherited>true</inherited>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.5.2</version>
+				<inherited>true</inherited>
+			</plugin>
+		</plugins>
+	</reporting>
+	
 	<!-- D I S T R I B U T I O N   M A N A G E M E N T -->
 	<distributionManagement>
 	</distributionManagement>
